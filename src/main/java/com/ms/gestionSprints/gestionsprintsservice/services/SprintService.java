@@ -24,7 +24,17 @@ public class SprintService {
     public Sprint createSprint(Sprint sprint) {
         return sprintRepository.save(sprint);
     }
-    public Sprint findSprintById(Long id) throws SQLException {
-        return this.sprintRepository.findById(id).get();
+
+    public Sprint modifierSprint(Sprint sp){
+       
+        return sprintRepository.save(sp);
+    }
+
+    public void supprimerSprint(Long id){
+        this.sprintRepository.deleteById(id);
+    }
+
+    public Sprint getSprint(Long id){
+        return sprintRepository.findById(id).get();
     }
 }

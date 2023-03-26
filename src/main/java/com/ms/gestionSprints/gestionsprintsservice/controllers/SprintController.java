@@ -9,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import java.sql.SQLException;
 import java.util.List;
 
@@ -26,17 +25,7 @@ public class SprintController {
     public List<Sprint> getAllSprints() {
         return sprintService.findAllSprints();
     }
-    @GetMapping("/{id}")
-    public Sprint getSprintById(@PathVariable Long id) {
-        try {
-            Sprint sprint =  sprintService.findSprintById(id);
-            return sprint;
-        } catch (SQLException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-            return null;
-        }
-    }
+
     @GetMapping("/productBacklog/{id}")
     public List<Sprint> getSprintsByProductBacklog(@PathVariable(name="id") Long id) throws SQLException {
 
@@ -55,5 +44,21 @@ public class SprintController {
         sprint.setEtat("En attente");
         Sprint createdSprint = sprintService.createSprint(sprint);
         return new ResponseEntity<>(createdSprint, HttpStatus.CREATED);
+    }
+
+    @PutMapping
+    public Sprint modifierSprintDate(@RequestBody Sprint sprint){
+        
+        return this.sprintService.modifierSprint(sprint);
+    }
+
+    @DeleteMapping("/{id}")
+    public void supprimerSprint(@PathVariable("id") Long id){
+        this.sprintService.supprimerSprint(id);
+    }
+
+    @GetMapping("/{id}")
+    public Sprint getSprint(@PathVariable("id") Long id){
+        return this.sprintService.getSprint(id);
     }
 }
