@@ -41,14 +41,16 @@ public class SprintController {
     public ResponseEntity<Sprint> createSprint(@RequestBody Sprint sprint, @RequestParam Long productBacklogId) {
         sprint.setProductBacklogId(productBacklogId);
         sprint.setVelocite(0);
-        sprint.setEtat("En attente");
+        sprint.setEtat("en attente");
         Sprint createdSprint = sprintService.createSprint(sprint);
         return new ResponseEntity<>(createdSprint, HttpStatus.CREATED);
     }
 
     @PutMapping
     public Sprint modifierSprintDate(@RequestBody Sprint sprint){
-        
+        System.out.println(sprint);
+        ProductBacklog productBacklog  = this.productBacklogService.findProductBacklogById(sprint.getProductBacklogId());
+        sprint.setProductBacklog(productBacklog);
         return this.sprintService.modifierSprint(sprint);
     }
 
