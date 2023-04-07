@@ -58,6 +58,9 @@ public class SprintController {
 
     @PutMapping
     public Sprint modifierSprintDate(@RequestBody Sprint sprint){
+        System.out.println(sprint);
+        ProductBacklog productBacklog  = this.productBacklogService.findProductBacklogById(sprint.getProductBacklogId());
+        sprint.setProductBacklog(productBacklog);
         return this.sprintService.modifierSprint(sprint);
     }
 
