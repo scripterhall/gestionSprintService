@@ -10,6 +10,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.sql.SQLException;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 @RestController
@@ -28,27 +30,34 @@ public class SprintController {
 
     @GetMapping("/productBacklog/{id}")
     public List<Sprint> getSprintsByProductBacklog(@PathVariable(name="id") Long id) throws SQLException {
-
         ProductBacklog productBacklog  = this.productBacklogService.findProductBacklogById(id);
         List<Sprint> sprints = this.sprintService.findAllSprintsByProductBacklog(id);
+
+        Collections.sort(sprints, new Comparator<Sprint>() {
+            @Override
+            public int compare(Sprint s1, Sprint s2) {
+                return s1.getDateFin().compareTo(s2.getDateFin());
+            }
+        });
+
         for(Sprint sprint:sprints){
             sprint.setProductBacklog(productBacklog);
         }
         return sprints;
     }
 
+
     @PostMapping
     public ResponseEntity<Sprint> createSprint(@RequestBody Sprint sprint, @RequestParam Long productBacklogId) {
         sprint.setProductBacklogId(productBacklogId);
         sprint.setVelocite(0);
-        sprint.setEtat("En attente");
+        sprint.setEtat("en attente");
         Sprint createdSprint = sprintService.createSprint(sprint);
         return new ResponseEntity<>(createdSprint, HttpStatus.CREATED);
     }
 
     @PutMapping
     public Sprint modifierSprintDate(@RequestBody Sprint sprint){
-        
         return this.sprintService.modifierSprint(sprint);
     }
 
