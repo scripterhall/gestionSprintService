@@ -1,4 +1,4 @@
-package com.ms.gestionSprints.gestionsprintsservice.entities;
+package com.ms.gestionSprints.entities;
 
 import java.util.Date;
 

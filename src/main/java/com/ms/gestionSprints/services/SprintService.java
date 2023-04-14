@@ -1,13 +1,11 @@
-package com.ms.gestionSprints.gestionsprintsservice.services;
+package com.ms.gestionSprints.services;
 
-import com.ms.gestionSprints.gestionsprintsservice.entities.Sprint;
-import com.ms.gestionSprints.gestionsprintsservice.repositories.SprintRepository;
+import com.ms.gestionSprints.entities.Sprint;
+import com.ms.gestionSprints.repositories.SprintRepository;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.sql.SQLException;
 import java.util.List;
 
 @Service

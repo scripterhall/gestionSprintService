@@ -1,13 +1,12 @@
-package com.ms.gestionSprints.gestionsprintsservice;
+package com.ms.gestionSprints;
 
+import com.ms.gestionSprints.entities.Sprint;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.annotation.Bean;
 import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
-
-import com.ms.gestionSprints.gestionsprintsservice.entities.Sprint;
 
 @SpringBootApplication
 @EnableFeignClients

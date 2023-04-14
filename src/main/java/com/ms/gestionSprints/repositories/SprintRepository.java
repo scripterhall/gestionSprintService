@@ -1,6 +1,6 @@
-package com.ms.gestionSprints.gestionsprintsservice.repositories;
+package com.ms.gestionSprints.repositories;
 
-import com.ms.gestionSprints.gestionsprintsservice.entities.Sprint;
+import com.ms.gestionSprints.entities.Sprint;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

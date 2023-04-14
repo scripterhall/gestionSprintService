@@ -1,10 +1,9 @@
-package com.ms.gestionSprints.gestionsprintsservice.controllers;
+package com.ms.gestionSprints.controllers;
 
-import com.ms.gestionSprints.gestionsprintsservice.entities.ProductBacklog;
-import com.ms.gestionSprints.gestionsprintsservice.entities.Sprint;
-import com.ms.gestionSprints.gestionsprintsservice.repositories.SprintRepository;
-import com.ms.gestionSprints.gestionsprintsservice.services.ProductBacklogService;
-import com.ms.gestionSprints.gestionsprintsservice.services.SprintService;
+import com.ms.gestionSprints.entities.ProductBacklog;
+import com.ms.gestionSprints.entities.Sprint;
+import com.ms.gestionSprints.services.ProductBacklogService;
+import com.ms.gestionSprints.services.SprintService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
