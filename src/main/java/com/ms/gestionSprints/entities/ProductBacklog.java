@@ -16,5 +16,7 @@ public class ProductBacklog {
     private int velocite;
     private Long id;
     private Date dateCreation;
+    private Projet projet;
+    private Long projetId;
 
 }

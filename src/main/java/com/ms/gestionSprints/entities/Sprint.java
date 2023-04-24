@@ -1,6 +1,6 @@
 package com.ms.gestionSprints.entities;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
+
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -22,7 +22,7 @@ public class Sprint {
     private String objectif;
     private int velocite;
     private String etat;
-    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    
     private Long productBacklogId;
     @Transient
     private ProductBacklog productBacklog;

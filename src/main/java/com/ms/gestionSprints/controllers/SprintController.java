@@ -20,6 +20,7 @@ public class SprintController {
     private SprintService sprintService;
     @Autowired
     private ProductBacklogService productBacklogService;
+    
     @GetMapping("/productBacklog/{id}")
     public List<Sprint> getSprintsByProductBacklog(@PathVariable(name="id") Long id) throws SQLException {
         ProductBacklog productBacklog  = this.productBacklogService.findProductBacklogById(id);
@@ -57,5 +58,14 @@ public class SprintController {
     @GetMapping("/{id}")
     public Sprint getSprint(@PathVariable("id") Long id){
         return this.sprintService.getSprint(id);
+    }
+    @GetMapping
+    public List<Sprint> getAllSprint(){
+        List<Sprint> sprints =  this.sprintService.getAllSprint();
+        for(Sprint sprint:sprints){
+            ProductBacklog pdb = this.productBacklogService.findProductBacklogById(sprint.getProductBacklogId());
+            sprint.setProductBacklog(pdb);
+        }
+        return sprints;
     }
 }
