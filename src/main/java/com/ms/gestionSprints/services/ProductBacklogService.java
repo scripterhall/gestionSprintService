@@ -1,6 +1,6 @@
-package com.ms.gestionSprints.gestionsprintsservice.services;
+package com.ms.gestionSprints.services;
 
-import com.ms.gestionSprints.gestionsprintsservice.entities.ProductBacklog;
+import com.ms.gestionSprints.entities.ProductBacklog;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

@@ -1,4 +1,4 @@
-package com.ms.gestionSprints.gestionsprintsservice.entities;
+package com.ms.gestionSprints.entities;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
