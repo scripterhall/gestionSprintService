@@ -86,5 +86,13 @@ public class SprintController {
         calendar.set(Calendar.SECOND, 0);
         calendar.set(Calendar.MILLISECOND, 0);
         return calendar.getTime();
+    @GetMapping
+    public List<Sprint> getAllSprint(){
+        List<Sprint> sprints =  this.sprintService.getAllSprint();
+        for(Sprint sprint:sprints){
+            ProductBacklog pdb = this.productBacklogService.findProductBacklogById(sprint.getProductBacklogId());
+            sprint.setProductBacklog(pdb);
+        }
+        return sprints;
     }
 }

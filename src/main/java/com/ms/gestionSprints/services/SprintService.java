@@ -35,4 +35,8 @@ public class SprintService {
     public Sprint getSprint(Long id){
         return sprintRepository.findById(id).get();
     }
+
+    public List<Sprint> getAllSprint(){
+        return this.sprintRepository.findAll();
+    }
 }
