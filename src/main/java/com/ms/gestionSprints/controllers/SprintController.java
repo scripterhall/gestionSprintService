@@ -86,6 +86,7 @@ public class SprintController {
         calendar.set(Calendar.SECOND, 0);
         calendar.set(Calendar.MILLISECOND, 0);
         return calendar.getTime();
+    }
     @GetMapping
     public List<Sprint> getAllSprint(){
         List<Sprint> sprints =  this.sprintService.getAllSprint();
@@ -96,3 +97,4 @@ public class SprintController {
         return sprints;
     }
 }
+
